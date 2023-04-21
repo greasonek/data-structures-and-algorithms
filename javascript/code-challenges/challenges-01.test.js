@@ -94,14 +94,12 @@ const addValues = (arr, value) => {
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
-  while(times){
-    --times;
-    // const newArr = [];
-    // arr.forEach(num =>{
-    //   newArr.push(num);});
-    // times.forEach(times =>{
-    //   newArr.push(times);});
-    callback(arr, num);}
+  for (let i = 0 ; i < times; i++){
+    callback(arr, num);
+  }
+  // while(times){
+  //   --times;
+  //   callback(arr, num);}
   return arr;
 };
 
