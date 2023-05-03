@@ -1,6 +1,6 @@
 'use strict';
 
-const { prev } = require("cheerio/lib/api/traversing");
+const { prev } = require('cheerio/lib/api/traversing');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
@@ -212,6 +212,11 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce((acc, character)=>{
+    return character.children ? acc + character.children.length : acc;
+    // const total = characters.children + 1;
+    // return total;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -224,6 +229,9 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  return arr.reduce((array, currentValue) => {
+    array + currentValue/array;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -357,13 +365,13 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should return the average of the numbers in the array', () => {
     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
   });
