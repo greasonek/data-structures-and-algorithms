@@ -106,6 +106,7 @@ The names should be combined into a single string with each character name separ
 
 For example, "C-3PO and Luke Skywalker".
 ------------------------------------------------------------------------------------------------ */
+Write a function named findShortest that, given the Star Wars data from Challenge 6, uses any combination of filter, map and reduce to return the name of the character who is the shortest in height.
 
 let starWarsData = [{
   name: 'Luke Skywalker',
@@ -173,7 +174,8 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
-  const shorty = data.filter(data.height).sort();
+  const shorty = data.filter(data => data.height.sort(a,b));
+  return shorty;
 };
 
 /* ------------------------------------------------------------------------------------------------
