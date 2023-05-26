@@ -1,6 +1,6 @@
 'use strict';
 
-const { val } = require("cheerio/lib/api/attributes");
+const { val, data } = require('cheerio/lib/api/attributes');
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
@@ -90,10 +90,11 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
-  const newArr = input.map((array)=>{
-    return array.filter((val) => typeof val === 'number' && val % 5 === 0);
+  const newArr = input.map(array=>{
+    return array.filter(num => typeof num === 'number' && num % 5 === 0)
+      .map(num => Math.pow(2, num));
   });
-  return newArr.map((val) =>Math.pow(2, val));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -160,9 +161,18 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
-  const newArr = data.filter(data.gender === 'male' || data.gender === 'female').map((data) => data.name);
-  const charNames = newArr.join('and');
-  return charNames;
+  const names = data.reduce((acc, char)=> {
+    if (char.gender === 'male' || char.gender === 'female'){
+      acc.push(char.name);
+    }
+    return acc;
+  }, []);
+  const newArr = names.join(' and ');
+  return newArr;
+
+//   const newArr = data.filter(data.gender === 'male' || data.gender === 'female').map((data) => data.name);
+//   const charNames = newArr.join('and');
+//   return charNames;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -173,7 +183,34 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
-  const shorty = data.filter(data.height).sort();
+  const shorty = data.reduce((shortest, character) => {
+    if (shortest === null || parseInt(character.height) < parseInt(shortest.height)) {
+      return character;
+    }
+    return shortest;
+  }, null);
+  if (shorty) {
+    return shorty.name;
+  } else {
+    return 'No character found';
+  }
+  // const shorty = data.filter(data.height !== 'unknown')
+  //   .map(data => ({
+  //     name: data.name,
+  //     height: parseInt(data.height),
+  //   }))
+  //   .reduce((shortest, data) => {
+  //     if (shortest === null || data.height < shortest.height) {
+  //       return data;
+  //     }
+  //     return shortest;
+  //   }, null);
+
+  // if (data) {
+  //   return data.name;
+  // } else {
+  //   return 'No character found';
+  // }
 };
 
 /* ------------------------------------------------------------------------------------------------
