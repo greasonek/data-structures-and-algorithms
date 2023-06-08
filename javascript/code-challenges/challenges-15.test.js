@@ -163,6 +163,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
+  let pattern = /^https:\/\/.+/;
+  return pattern.test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -186,6 +188,26 @@ Here is a sample board:
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  function check(row1, col1, row2, col2, row3, col3){
+    var val1 = board[row1][col1];
+    var val2 = board[row2][col2];
+    var val3 = board[row3][col3];
+    return val1 !== '' && val1 === val2 && val1 === val3;
+  }
+  for (var row = 0; row < 3; row++){
+    if(check(row, 0, row, 1, row, 2)){
+      return true;
+    }
+  }
+  for(var col = 0; col < 3; col++){
+    if(check(0, col, 1, col, 2, col)){
+      return true;
+    }
+  }
+  if(check(0,0,1,1,2,2) || check(1,2,1,1,2,0)){
+    return true;
+  }
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
