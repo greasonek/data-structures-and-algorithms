@@ -7,8 +7,8 @@ class Node{
   }
 }
 class LinkedList {
-  constructor() {
-    this.head = null;
+  constructor(head = null) {
+    this.head = head;
   }
 
   traversal() {
