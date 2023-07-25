@@ -1,8 +1,9 @@
-# Challenge 06
+# Challenge 06 & Challenge 07
 
 ## Whiteboard Process
 
 ![code-challenge-06-whiteboard](code-challenge-06-whiteboard.png)
+![code-challenge-07-whiteboard](code-challenge-07-whiteboard.png)
 
 ## Approach & Efficiency
 
