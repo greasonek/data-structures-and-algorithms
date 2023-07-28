@@ -11,6 +11,7 @@ class LinkedList {
     this.head = head;
   }
 
+
   traversal() {
     let current = this.head;
     while(current) {
@@ -110,6 +111,31 @@ class LinkedList {
       current = current.next;
     }
     return null;
+  }
+
+  zipList(linkedList2) {
+    if (!this.head) {
+      return linkedList2;
+    }
+    let temp1 = this.head;
+    let temp2 = linkedList2.head;
+
+    let newLinkedList = new LinkedList();
+    while (temp1.next || temp2.next) {
+      if(temp1){
+        newLinkedList.append(temp1.value);
+        temp1 = temp1.next;
+      }
+      if(temp2){
+        newLinkedList.append(temp2.value);
+        temp2 = temp2.next;
+      }
+      if(!temp1 && !temp2) {
+        return null;
+      }
+    }
+    return newLinkedList;
+
   }
 }
 
