@@ -51,6 +51,23 @@ class BinaryTree {
   isEmpty() {
     return this.value = null;
   }
+
+  findMax() {
+    if (this.root === null) {
+      return null;
+    }
+
+    let maxVal = this.value;
+    this.left = this.findMax(this.left);
+    this.right = this.findMax(this.right);
+    if(this.left > maxVal) {
+      maxVal = this.left;
+    }
+    if(this.right > maxVal) {
+      maxVal = this.right;
+    }
+    return maxVal;
+  }
 }
 
 class BinarySearchTree extends BinaryTree {
