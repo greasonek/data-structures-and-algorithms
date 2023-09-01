@@ -19,7 +19,7 @@ describe('Trees', () => {
     const testTree = new BinaryTree(fakeTree);
     expect(testTree.isEmpty()).toBeTruthy;
   });
-  
+
   test('Can successfully instantiate a tree with a single root node', () => {
     const testTree = new BinaryTree(fakeTree);
     expect(testTree.preOrder()).toBeTruthy;
