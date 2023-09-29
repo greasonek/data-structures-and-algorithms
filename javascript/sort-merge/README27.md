@@ -16,3 +16,7 @@
   - k is k + 1 (k++)
 - if i is equal to left. length then array.length is equal to right.length
   - otherwise, array.length is equal to left.length
+
+### Visual
+
+![merge-visual](Screenshot%202023-09-28%20at%209.49.50 PM.png)
