@@ -1,6 +1,6 @@
 'use strict';
 
-const {mergeSort} = require('./merge.js');
+const mergeSort = require('./merge.js');
 
 describe('mergeSort', () => {
   it('should merge and sort a divided array with multiple elements', () => {
