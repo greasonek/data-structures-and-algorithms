@@ -4,9 +4,9 @@ function mergeSort (array) {
   if (array.length <= 1) {
     return array;
   }
-  const middle = Math.floor(array.length / 2);
-  const left = array.slice(0, middle);
-  const right = array.slice(middle);
+  const mid = Math.floor(array.length / 2);
+  const left = array.slice(0, mid);
+  const right = array.slice(mid);
   return merge(
     mergeSort(left), mergeSort(right)
   );
@@ -24,9 +24,9 @@ function merge (left, right) {
       j++;
     }
   }
-  return resultArray
-    .concat(left.slice(i))
-    .concat(right.slice(j));
+
+  return [...resultArray, ...left.slice(i), ...right.slice(j)];
+
 }
 module.exports = mergeSort;
 
