@@ -58,7 +58,7 @@ class HashTable {
     return this.keys[key] !== undefined;
   }
 
-  keys(){
+  key(){
     return Object.keys(this.keys);
   }
 }

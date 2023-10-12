@@ -39,9 +39,9 @@ describe('Hash Table', () => {
     myHashTable.set('dogs', 2);
     myHashTable.set('city', 'Olympia');
 
-    const keys = myHashTable.keys();
+    const myKey = myHashTable.key();
 
-    expect(keys).toEqual(expect.arrayContainting(['name', 'age', 'dogs', 'city']));
+    expect(myKey).toEqual((['name', 'age', 'dogs', 'city']));
   });
 
   it('Successfully handle a collision within the hashtable', () => {
