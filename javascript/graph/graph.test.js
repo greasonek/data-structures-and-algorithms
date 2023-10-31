@@ -54,14 +54,46 @@ describe('Graph implementation', () => {
 
     expect(myGraph.size()).toBe(3);
   });
-  // test('A graph with only one vertex and edge can be properly returned', () => {
-  //   const myGraph = new Graph();
-  //   const V1 = myGraph.addVertex('a');
-  //   myGraph.addEdge(V1, V1, 5);
+  xtest('A graph with only one vertex and edge can be properly returned', () => {
+    const myGraph = new Graph();
+    const V1 = myGraph.addVertex('a');
+    myGraph.addEdge(V1, V1, 5);
 
-  //   expect(myGraph.getNeighbors(V1)[0]).toBe(V1);
+    expect(myGraph.getNeighbors(V1)[0]).toBe(V1);
 
-  // });
+  });
+  test('The graph should perform breadth-first traversal', () => {
+    const myGraph = new Graph();
+
+    const nodeA = myGraph.addVertex('A');
+    const nodeB = myGraph.addVertex('B');
+    myGraph.addEdge(nodeA, nodeB);
+    const nodeC = myGraph.addVertex('C');
+    myGraph.addEdge(nodeB, nodeC);
+
+    const nodeD = myGraph.addVertex('D');
+    myGraph.addEdge(nodeC, nodeD);
+
+    const nodeE = myGraph.addVertex('E');
+    myGraph.addEdge(nodeD, nodeE);
+
+    const nodeF = myGraph.addVertex('F');
+    myGraph.addEdge(nodeE, nodeF);
+    console.log(myGraph.getNeighbors(nodeA));
+    console.log(myGraph);
+    expect(myGraph.breadthFirst(nodeA)).toEqual([nodeA, nodeB, nodeC, nodeD, nodeE, nodeF]);
+  });
+  test('BreadthFirst should handle an graph with no Node', () => {
+    const myGraph = new Graph();
+
+    expect(myGraph.breadthFirst(null)).toBeNull();
+  });
+  test('BreadthFirst should handle a graph with only one Node', () => {
+    const myGraph = new Graph();
+    const nodeA = myGraph.addVertex('A');
+
+    expect(myGraph.breadthFirst(nodeA)).toEqual([nodeA]);
+  });
 });
 
 module.exports = Graph;

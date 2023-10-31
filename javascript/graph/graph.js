@@ -87,6 +87,30 @@ class Graph {
   size(){
     return this.adjacencyList.size;
   }
-}
 
+  breadthFirst(Node) {
+    if(!Node) return null;
+    const result = [];
+    const queue = [Node];
+    const nodeMap = new Map();
+
+    nodeMap.set(Node, true);
+    while(queue.length > 0){
+      let current = queue.shift();
+      // process node
+      result.push(current);
+      // get neighbors
+      let neighbors = this.getNeighbors(current);
+      neighbors.forEach((neighbor) => {
+        // check map if neighbor is not in map, add to map and queue
+        if(!nodeMap.has(neighbor.to)){
+          nodeMap.set(neighbor.to, true);
+          queue.unshift(neighbor.to);
+        }
+      });
+    }
+    return result;
+
+  }
+}
 module.exports = { Node, Edge, Graph};
