@@ -111,6 +111,27 @@ class BinarySearchTree extends BinaryTree {
       return this.contains(node.right, value);
     }
   }
+
+  greaterSum(root) {
+    if(!root){
+      return null;
+    }
+     subtreeSum(node) {
+      if(node === null){
+        return 0;
+      }
+      const leftSubtree = subtreeSum(node.left);
+      const rightSubtree = subtreeSum(node.right);
+    }
+
+    if(leftSubtree > rightSubtree) {
+      return 'left';
+    } else if (rightSubtree > leftSubtree){
+      return 'right';
+    } else {
+      return 'equal';
+    }
+  }
 }
 
 module.exports = {BinaryTreeNode, BinaryTree, BinarySearchTree};
