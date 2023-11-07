@@ -110,7 +110,25 @@ class Graph {
       });
     }
     return result;
-
+  }
+  depthFirst(Node) {
+    if(!Node) return null;
+    const result = [];
+    const stack = [Node];
+    const nodeMap = new Map();
+    nodeMap.set(Node, true);
+    while(stack.length > 0){
+      let current = stack.pop();
+      result.push(current);
+      let neighbors = this.getNeighbors(current);
+      neighbors.forEach((neighbor) => {
+        if(!nodeMap.has(neighbor.to)){
+          nodeMap.set(neighbor.to, true);
+          stack.push(neighbor.to);
+        }
+      });
+    }
+    return result;
   }
 }
 module.exports = { Node, Edge, Graph};

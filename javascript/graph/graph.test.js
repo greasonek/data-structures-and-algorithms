@@ -94,6 +94,37 @@ describe('Graph implementation', () => {
 
     expect(myGraph.breadthFirst(nodeA)).toEqual([nodeA]);
   });
+  test('The graph should perform depth first traversal', () => {
+    const myGraph = new Graph();
+
+    const nodeA = myGraph.addVertex('A');
+    const nodeB = myGraph.addVertex('B');
+    myGraph.addEdge(nodeA, nodeB);
+    const nodeC = myGraph.addVertex('C');
+    myGraph.addEdge(nodeB, nodeC);
+
+    const nodeD = myGraph.addVertex('D');
+    myGraph.addEdge(nodeC, nodeD);
+
+    const nodeE = myGraph.addVertex('E');
+    myGraph.addEdge(nodeD, nodeE);
+
+    const nodeF = myGraph.addVertex('F');
+    myGraph.addEdge(nodeE, nodeF);
+    console.log(myGraph.getNeighbors(nodeA));
+    console.log(myGraph);
+    expect(myGraph.depthFirst(nodeA)).toEqual([nodeA, nodeB, nodeC, nodeD, nodeE, nodeF]);
+  });
+  test('DepthFirst should handle an empty graph', () => {
+    const myGraph = new Graph();
+    expect(myGraph.depthFirst(null)).toBeNull();
+  });
+  test('DepthFirst should handle a graph with only one Node', () => {
+    const myGraph = new Graph();
+    const nodeA = myGraph.addVertex('A');
+
+    expect(myGraph.depthFirst(nodeA)).toEqual([nodeA]);
+  });
 });
 
 module.exports = Graph;
