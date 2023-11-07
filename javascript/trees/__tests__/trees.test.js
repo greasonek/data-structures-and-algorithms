@@ -25,7 +25,7 @@ describe('Tree', () => {
     expect(testTree.preOrder()).toBeTruthy;
   });
   test('For a Binary Search Tree, can successfully add a left child and right child properly to a node', () => {
-    const testTree = new BinaryTree(fakeTree);
+    const testTree = new BinarySearchTree(fakeTree);
     testTree.add(5);
     testTree.add(9);
     expect(testTree.add()).toBeTruthy;

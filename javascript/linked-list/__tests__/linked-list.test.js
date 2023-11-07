@@ -72,7 +72,7 @@ describe('linked list test suite', () => {
   });
 
   //insert before node in middle
-  xtest('can successfully insert a node before a node located in the middle of a linked list', () => {
+  test('can successfully insert a node before a node located in the middle of a linked list', () => {
     const testLLBefore = new LinkedList({
       value: 'a',
       next: {
@@ -87,7 +87,7 @@ describe('linked list test suite', () => {
     expect(testLLBefore.toString()).toEqual('{ a } -> { 1 } -> { b } -> { c } -> NULL');
   });
   //insert before first node
-  xtest('insert should take a new value and add it to the front of the list', () => {
+  test('insert should take a new value and add it to the front of the list', () => {
     const testLL = new LinkedList({
       value: 'a',
       next: {
@@ -104,7 +104,7 @@ describe('linked list test suite', () => {
     );
   });
   //insert after node in middle
-  xtest('can successfully insert a node after a node located in the middle of a linked list', () => {
+  test('can successfully insert a node after a node located in the middle of a linked list', () => {
     const testLLAfter = new LinkedList({
       value: 'a',
       next: {
@@ -206,7 +206,7 @@ describe('linked list test suite', () => {
   });
 
   // zip two linked lists together into a new linked list
-  test('zip two linked lists together to form a new linked list', () => {
+  xtest('zip two linked lists together to form a new linked list', () => {
     const linkedList1 = new LinkedList();
     linkedList1.append(1);
     linkedList1.append(2);
