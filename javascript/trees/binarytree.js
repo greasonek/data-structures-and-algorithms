@@ -83,14 +83,20 @@ class BinarySearchTree extends BinaryTree {
     if(num === node.value) return;
 
     if(num < node.value) {
-      if(node.left) this.add(num, node.left);
+      if(node.left) {
+        this.add(num, node.left);
+        return;
+      }
       else {
         node.left === newNode;
         return;
       }
     }
     if(num > node.value) {
-      if(node.right) this.add(num, node.right);
+      if(node.right) {
+        this.add(num, node.right);
+        return;
+      }
       else {
         node.right === newNode;
         return;
@@ -112,26 +118,26 @@ class BinarySearchTree extends BinaryTree {
     }
   }
 
-  greaterSum(root) {
-    if(!root){
-      return null;
-    }
-     subtreeSum(node) {
-      if(node === null){
-        return 0;
-      }
-      const leftSubtree = subtreeSum(node.left);
-      const rightSubtree = subtreeSum(node.right);
-    }
+  // greaterSum(root) {
+  //   if(!root){
+  //     return null;
+  //   }
+  //   subtreeSum(node) {
+  //     if(node === null){
+  //       return 0;
+  //     }
+  //     const leftSubtree = subtreeSum(node.left);
+  //     const rightSubtree = subtreeSum(node.right);
+  //   }
 
-    if(leftSubtree > rightSubtree) {
-      return 'left';
-    } else if (rightSubtree > leftSubtree){
-      return 'right';
-    } else {
-      return 'equal';
-    }
-  }
+  //   if(leftSubtree > rightSubtree) {
+  //     return 'left';
+  //   } else if (rightSubtree > leftSubtree){
+  //     return 'right';
+  //   } else {
+  //     return 'equal';
+  //   }
+  // }
 }
 
 module.exports = {BinaryTreeNode, BinaryTree, BinarySearchTree};
